@@ -27,7 +27,9 @@
     "test:doc": "markdown-doctest doc/*.md",
     "test:fp": "node test/test-fp",
     "test:main": "node test/test",
-    "validate": "npm run style && npm run test"
+    "validate": "npm run style && npm run test",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix"
   },
   "devDependencies": {
     "async": "^2.6.3",
@@ -40,6 +42,12 @@
     "docdown": "~0.7.2",
     "dojo": "^1.15.0",
     "ecstatic": "^2.2.2",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsdoc": "^50.4.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^7.1.0",
     "fs-extra": "~1.0.0",
     "glob": "^7.1.4",
     "istanbul": "0.4.5",

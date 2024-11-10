@@ -1,16 +1,14 @@
-'use strict';
+self.console || (self.console = { log() {} });
 
-self.console || (self.console = { 'log': function() {} });
-
-addEventListener('message', function(e) {
+addEventListener('message', e => {
   if (e.data) {
     try {
-      importScripts('../' + e.data);
+      importScripts(`../${e.data}`);
     } catch (e) {
-      var lineNumber = e.lineNumber,
-          message = (lineNumber == null ? '' : (lineNumber + ': ')) + e.message;
+      const { lineNumber } = e;
+      const message = (lineNumber == null ? '' : (`${lineNumber}: `)) + e.message;
 
-      self._ = { 'VERSION': message };
+      self._ = { VERSION: message };
     }
     postMessage(_.VERSION);
   }
